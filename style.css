@@ -1,0 +1,319 @@
+/* -------------------------------------- */
+/* -------- Custom Variables ------------ */
+/* -------------------------------------- */
+
+:root {
+
+    /* ## Colors */
+
+    /* ### Primary */
+
+    --linear-gradient-active-input-border: 249 99% 64%;
+    --linear-gradient-second: 278 94% 30%;
+    --red-input-errors: 0 100% 66;
+
+    /* ### Neutral */
+
+    --white: 0 0% 100%;
+    --light-grayish-violet: 270 3% 87%;
+    --dark-grayish-violet: 279 6% 55%;
+    --very-dark-violet: 278 68% 11%;
+
+}
+
+
+/* ---------------------------- */
+/* ------- CSS Reset ---------- */
+/* ---------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+    /* fix spacing issues */
+}
+
+/* make forms easy to work with */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* -------------------------------------- */
+/* ------------ Body Defaults ----------- */
+/* -------------------------------------- */
+
+body {
+    font-size: 18px;
+    background-color: hsl(var(--white));
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-transform: uppercase;
+    margin-bottom: .3em;
+    font-weight: 500;
+}
+
+input {
+    border-radius: .4em;
+    border: 1.6px solid hsl(var(--light-grayish-violet));
+    padding: .5em;
+    margin-bottom: 1rem;
+    outline: none;
+}
+
+
+input:hover,
+input:focus {
+    border-color: hsl(var(--linear-gradient-active-input-border));
+}
+
+
+.cards {
+    position: relative;
+    background-image: url(images/bg-main-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: min(300px,35vh);
+    margin-bottom: 4rem;
+}
+
+.card {
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: hsl(var(--white));
+    /* width: 65%; */
+    width: min(80%, 260px);
+    height: min(35vw,140px);
+    border-radius: 7px;
+    padding: 1rem;
+}
+
+/* ------------------------------------------ */
+/* ---------------- Card Front -------------- */
+/* ------------------------------------------ */
+
+.card-front {
+    background-image: url(images/bg-card-front.png);
+    bottom: -10vh;
+    z-index: 8;
+    /* width: 80%;
+    height: 0;
+    padding-top: 66.64%; */
+    /* (img-height / img-width * container-width) */
+    /* (853 / 1280 * 100) */
+    /* trick to make div same size as bg */
+}
+
+
+.big-circle {
+    display: grid;
+    width: 12%;
+    aspect-ratio: 1;
+    background-color: hsl(var(--white));
+    border-radius: 50%;
+}
+
+.small-circle {
+    display: grid;
+    width: 7%;
+    aspect-ratio: 1;
+    border: 1px solid hsl(var(--white));
+    border-radius: 50%;
+}
+
+.card-front >.card-num {
+    display: block;
+    width: 100%;
+    margin-inline: auto;
+    /* font-size: 1.5vw; */
+    font-size: 3.5vw;
+
+}
+
+.card-front>.cardholder {
+    /* font-size: 1.1vw; */
+}
+
+.card-front>.exp-date {
+    margin-left: 20%;
+    /* font-size: 1vw; */
+}
+
+/* ------------------------------- */
+/* -------- Card Back ------------ */
+/* ------------------------------- */
+
+.card-back {
+    background-image: url(images/bg-card-back.png);
+    top: 5vh;
+    right: 5vh;
+    z-index: 7;
+}
+
+.card-back>.cvc {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 13%;
+    translate: 0 -50%;
+    font-size: 3.5vw;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: min(90%, 350px);
+    margin-inline: auto;
+    padding-block: 3rem;
+}
+
+
+.flex {
+    display: flex;
+    gap: var(--gap, .7rem);
+}
+
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex>div {
+    width: 50%;
+}
+
+.exp-label {
+    width: 100%;
+}
+
+
+.error {
+    text-transform: capitalize;
+    font-size: .8em;
+}
+
+
+.thankx {
+    display: none;
+}
+
+.confirm-btn {
+    font-weight: 500;
+    color: hsl(var(--white));
+    background-color: hsl(var(--very-dark-violet));
+    border: none;
+    border-radius: .5em;
+    padding-block: .7em;
+}
+
+@media (min-width: 700px) {
+    header {
+        flex-direction: row;
+        height: 100vh;
+    }
+
+    .cards {
+        height: 100vh;
+        width: 30vw;
+        padding-block: 25vh;
+        margin-bottom: 0;
+    }
+
+    .card {
+        width: 75%;
+        height: 12vw;
+    }
+
+    .card-front {
+        right: -50%;
+        margin-bottom: 2rem;
+    }
+
+    .card-front>.exp-date {
+        font-size: 1.6vw;
+    }
+
+    .big-circle {
+        display: grid;
+        width: 12%;
+        aspect-ratio: 1;
+        background-color: hsl(var(--white));
+        border-radius: 50%;
+    }
+
+    .small-circle {
+        display: grid;
+        width: 7%;
+        aspect-ratio: 1;
+        border: 1px solid hsl(var(--white));
+        border-radius: 50%;
+    }
+
+    .card-front>.card-num {
+        display: block;
+        width: 100%;
+        margin-inline: auto;
+        font-size: 1.8vw;
+    }
+
+    .card-front>.cardholder {
+        font-size: 1.1vw;
+    }
+
+    .card-front>.exp-date {
+        margin-left: 20%;
+        font-size: 1vw;
+    }
+
+    .card-back {
+        position: relative;
+        right: -70%;
+    }
+
+    .card-back>.cvc {
+        /* background-color: blue; */
+        top: 50%;
+        left: 80%;
+        translate: 0 -70%;
+        letter-spacing: .2em;
+    }
+
+    
+    .exp-label {
+        width: max-content;
+    }
+
+    .form {
+        margin-left: 20%;
+        max-width: 380px;
+    }
+}

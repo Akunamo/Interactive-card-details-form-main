@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Interactive card details form</title>
+  <script src="validation.js" defer></script>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <section class="cards">
+      <div class="card card-front">
+        <div class="flex" style="align-items:center; margin-bottom: 14%;">
+          <span class="big-circle"></span>
+          <span class="small-circle"></span>
+        </div>
+        <span class="card-num">0000 0000 0000 0000</span>
+        <span class="cardholder">Jane Appleseed</span>
+        <span class="exp-date">00/00</span>
+      </div>
+      <div class="card card-back">
+        <span class="cvc">000</span>
+      </div>
+
+    </section>
+    <section class="form">
+      <form action="/" name="myform" onsubmit="return checkValidation()">
+
+        <label>Cardholder Name</label>
+        <input name="cname" type="text" placeholder="e.g. Jane Appleseed">
+        <span class="error"></span>
+
+
+        <label for="cnumber">Card Number</label>
+        <input name="cnumber" type="text" placeholder="e.g. 1234 5678 9123 0000" maxlength="16">
+        <span class="error"></span>
+
+
+
+        <div class="flex" style="--gap:0em">
+          <div class="flex-column">
+            <label class="exp-label" for="exp">Exp. Date (MM/YY)</label>
+            <div class="flex" style="--gap:.1em">
+              <input name="exp-month" type="getmonth" placeholder="MM" size="2" maxlength="2">
+              <input name="exp-year" type="getyear" placeholder="YY" size="4" maxlength="4">
+            </div>
+          </div>
+          <div class="flex-column">
+            <label for="cvc">CVC</label>
+            <input type="text" name="cvc" placeholder="e.g. 123" style="width:100%">
+            <span class="error"></span>
+          </div>
+        </div>
+
+
+
+        <button class="confirm-btn" type="submit">Confirm</button>
+      </form>
+    </section>
+
+
+    <!-- Completed state start -->
+
+    <section class="thankx">
+
+      <h3>
+        Thank you!
+        We've added your card details
+      </h3>
+      <button>Continue</button>
+    </section>
+
+  </header>
+
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </footer>
+</body>
+
+</html>
