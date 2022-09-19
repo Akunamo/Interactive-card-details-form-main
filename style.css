@@ -75,15 +75,16 @@ header {
 
 label {
     text-transform: uppercase;
-    margin-block: .4em;
+    margin-block: 1em .4em;
     font-weight: 500;
+    font-size: .8rem;
 }
 
 input {
     border-radius: .4em;
     border: 1.6px solid hsl(var(--light-grayish-violet));
     padding: .5em;
-    margin-bottom: .8em;
+    margin-bottom: .9em;
     outline: none;
 }
 
@@ -275,8 +276,8 @@ input::-webkit-inner-spin-button {
 
     .card {
         padding: 2rem;
-        width: min(410px,30vw);
-        height: min(17vw,230px);
+        width: min(450px,35vw);
+        height: min(20vw,250px);
     }
 
     .card-front {
@@ -286,7 +287,7 @@ input::-webkit-inner-spin-button {
     }
 
     .card-front > .flex {
-        margin-bottom: 3vw;
+        margin-bottom: 4vw;
     }
 
     .card-num {
@@ -339,5 +340,7 @@ input::-webkit-inner-spin-button {
         left: 50%;
         translate: -30% -50%;
     } 
+
+
 }
 
