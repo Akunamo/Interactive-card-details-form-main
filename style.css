@@ -75,7 +75,7 @@ header {
 
 label {
     text-transform: uppercase;
-    margin-bottom: .3em;
+    margin-block: .4em;
     font-weight: 500;
 }
 
@@ -83,7 +83,7 @@ input {
     border-radius: .4em;
     border: 1.6px solid hsl(var(--light-grayish-violet));
     padding: .5em;
-    margin-bottom: 1rem;
+    margin-bottom: .8em;
     outline: none;
 }
 
@@ -99,8 +99,8 @@ input:focus {
     background-image: url(images/bg-main-mobile.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: min(300px,35vh);
-    margin-bottom: 4rem;
+    height: min(230px,35vh);
+    margin-bottom: 2rem;
 }
 
 .card {
@@ -110,9 +110,11 @@ input:focus {
     color: hsl(var(--white));
     /* width: 65%; */
     width: min(80%, 260px);
-    height: min(35vw,140px);
+    height: min(40vw,140px);
+    scale: .8;
     border-radius: 7px;
     padding: 1rem;
+    box-shadow: 0 40px 50px  rgb(0 0 0 / .34);
 }
 
 /* ------------------------------------------ */
@@ -121,8 +123,11 @@ input:focus {
 
 .card-front {
     background-image: url(images/bg-card-front.png);
-    bottom: -10vh;
+    left: 50%;
+    top: 50%;
+    translate: -72%;
     z-index: 8;
+    /* margin-left: .4rem; */
     /* width: 80%;
     height: 0;
     padding-top: 66.64%; */
@@ -131,6 +136,10 @@ input:focus {
     /* trick to make div same size as bg */
 }
 
+.card-front > .flex {
+    align-items: center;
+    margin-bottom: 30px;
+}
 
 .big-circle {
     display: grid;
@@ -148,22 +157,19 @@ input:focus {
     border-radius: 50%;
 }
 
-.card-front >.card-num {
+.card-num {
     display: block;
     width: 100%;
     margin-inline: auto;
-    /* font-size: 1.5vw; */
-    font-size: 3.5vw;
-
+    font-size: 16px;
 }
-
-.card-front>.cardholder {
-    /* font-size: 1.1vw; */
+.cardholder {
+    text-transform: uppercase;
+    font-size: 12px;
 }
-
-.card-front>.exp-date {
+.exp-date {
     margin-left: 20%;
-    /* font-size: 1vw; */
+    font-size: 12px;
 }
 
 /* ------------------------------- */
@@ -172,18 +178,20 @@ input:focus {
 
 .card-back {
     background-image: url(images/bg-card-back.png);
+    left: 50%;
+    translate: -30%;
     top: 5vh;
     right: 5vh;
     z-index: 7;
 }
 
-.card-back>.cvc {
+.cvc {
     display: inline-block;
     position: absolute;
     top: 50%;
     right: 13%;
     translate: 0 -50%;
-    font-size: 3.5vw;
+    font-size: 12px;
 }
 
 
@@ -196,9 +204,18 @@ form {
 }
 
 
+/* Chrome, Safari, Edge, Opera to hide arrow on input type number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
 .flex {
     display: flex;
     gap: var(--gap, .7rem);
+    margin-bottom: .7em;
 }
 
 
@@ -211,14 +228,20 @@ form {
     width: 50%;
 }
 
+.flex input {
+    margin: 0;
+}
+
 .exp-label {
     width: 100%;
 }
 
 
 .error {
-    text-transform: capitalize;
-    font-size: .8em;
+    display: none;
+    font-size: .7em;
+    color: red;
+    margin: 0px;
 }
 
 
@@ -235,13 +258,15 @@ form {
     padding-block: .7em;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 980px) {
     header {
         flex-direction: row;
         height: 100vh;
     }
 
     .cards {
+        /* position: relative; */
+        background-image: url(images/bg-main-desktop.png);
         height: 100vh;
         width: 30vw;
         padding-block: 25vh;
@@ -249,62 +274,52 @@ form {
     }
 
     .card {
-        width: 75%;
-        height: 12vw;
+        padding: 2rem;
+        width: min(410px,30vw);
+        height: min(17vw,230px);
     }
 
     .card-front {
-        right: -50%;
-        margin-bottom: 2rem;
+        top: 50%;
+        left: 25%;
+        translate: 10% -110%;
     }
 
-    .card-front>.exp-date {
-        font-size: 1.6vw;
+    .card-front > .flex {
+        margin-bottom: 3vw;
     }
 
-    .big-circle {
-        display: grid;
-        width: 12%;
-        aspect-ratio: 1;
-        background-color: hsl(var(--white));
-        border-radius: 50%;
-    }
-
-    .small-circle {
-        display: grid;
-        width: 7%;
-        aspect-ratio: 1;
-        border: 1px solid hsl(var(--white));
-        border-radius: 50%;
-    }
-
-    .card-front>.card-num {
-        display: block;
+    .card-num {
         width: 100%;
         margin-inline: auto;
-        font-size: 1.8vw;
+        letter-spacing: .2rem;
+        font-size: min(1.5vw,24px);
+        margin-bottom: 1rem;
     }
 
-    .card-front>.cardholder {
-        font-size: 1.1vw;
+    .cardholder {
+        font-size: 16px;
     }
 
-    .card-front>.exp-date {
-        margin-left: 20%;
-        font-size: 1vw;
+    .exp-date {
+        position: absolute;
+        right: 2rem;
+        font-size: 16px;
     }
 
+    
     .card-back {
-        position: relative;
-        right: -70%;
+        top: 60%;
+        left: 60%;
+        translate: 0 -25%;
     }
 
-    .card-back>.cvc {
-        /* background-color: blue; */
+    .cvc {
         top: 50%;
         left: 80%;
-        translate: 0 -70%;
+        translate: 0 -50%;
         letter-spacing: .2em;
+        font-size: 16px;
     }
 
     
@@ -312,8 +327,17 @@ form {
         width: max-content;
     }
 
-    .form {
-        margin-left: 20%;
-        max-width: 380px;
+    section.form {
+        position: relative;
+        height: 100vh;
+        width: 70%;
     }
+
+    form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -30% -50%;
+    } 
 }
+
