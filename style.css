@@ -277,8 +277,8 @@ input::-webkit-inner-spin-button {
 
     .card {
         padding: 2rem;
-        width: min(450px,35vw);
-        height: min(20vw,250px);
+        width: min(480px,35vw);
+        height: min(20vw,270px);
     }
 
     .card-front {
@@ -288,7 +288,7 @@ input::-webkit-inner-spin-button {
     }
 
     .card-front > .flex {
-        margin-bottom: 4vw;
+        margin-bottom: 5.7vw;
     }
 
     .card-num {
